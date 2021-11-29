@@ -1,5 +1,4 @@
-export interface IAppConfig {
-  isProduction(): boolean;
+export interface IDatabaseConfig {
   getDatabaseHost(): string;
   getDatabasePort(): number;
   getDatabaseName(): string;

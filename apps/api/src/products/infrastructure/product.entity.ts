@@ -1,7 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { IProduct } from '../domain/product.model';
 
 @Entity()
-export class ProductEntity {
+export class ProductEntity implements IProduct {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: number;
 
@@ -19,4 +20,10 @@ export class ProductEntity {
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   price: number;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }
